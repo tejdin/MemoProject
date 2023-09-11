@@ -51,6 +51,14 @@
                 </div>
                 <input type="submit" value="Sign In" class="btn btn-primary w-100">
             </form>
+            <p class="mt-3">
+                <?php
+                 session_start();
+
+                if (isset($_SESSION['Message'])) {
+                    echo $_SESSION['Message'];
+                }
+                ?>
         </div>
     </div>
 </div>
