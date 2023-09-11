@@ -51,14 +51,21 @@
                 </div>
                 <input type="submit" value="Sign In" class="btn btn-primary w-100">
             </form>
-            <p class="mt-3">
-                <?php
-                 session_start();
+            <?php
+            session_start();
 
-                if (isset($_SESSION['Message'])) {
-                    echo $_SESSION['Message'];
-                }
+            if (isset($_SESSION['Message'])) {
                 ?>
+                <p class="mt-3 alert alert-danger" role="alert">
+                    <?php
+                    echo $_SESSION['Message'];
+                    unset($_SESSION['Message']);
+                    ?>
+                </p>
+                <?php
+            }
+            ?>
+
         </div>
     </div>
 </div>
