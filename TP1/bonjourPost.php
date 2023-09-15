@@ -2,8 +2,15 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    echo $_GET['firstName'] . "\n" ;
-    echo $_GET['lastName'];
+    if (isset($_POST['firstName']) && isset($_POST['lastName']))
+    {
+        echo $_POST['firstName'] . "\n" ;
+        echo $_POST['lastName'];
+    }
+    else
+    {
+        header('location: formulaire.html');
+    }
 }
 else
 {
