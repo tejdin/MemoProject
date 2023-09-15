@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +55,6 @@
                 <input type="submit" value="Sign In" class="btn btn-primary w-100">
             </form>
             <?php
-            session_start();
 
             if (isset($_SESSION['Message'])) {
                 ?>

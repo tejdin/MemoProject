@@ -1,4 +1,8 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -37,7 +41,7 @@
             <h1>Account</h1>
             <p>
                 <?php
-                session_start();
+
                 if (isset($_SESSION['username'])) {
                     echo "Welcome, " . htmlspecialchars($_SESSION['username']) . "!";
                 } else {
