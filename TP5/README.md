@@ -8,7 +8,7 @@ Intégrer l'application d'authentification au framework Laravel.
 Vous pouvez vous baser au choix :
 
 - sur vos propres sources résultant du TP4
-- sur la proposition du répertoire [TP4/correction](TP4/correction)
+- sur la proposition du répertoire [TP4/correction](TP4/corrige)
 
 Notez que le but de ce TP est d'obtenir une application fonctionnelle **mais qui ne respectera pas encore le découpage MVC**.
 
