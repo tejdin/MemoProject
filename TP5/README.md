@@ -81,7 +81,7 @@ Exercice 4 : Le grand nettoyage
 
 1. Supprimer tous les `session_start()` de tous vos fichiers.
 
-1. Dans `routes/web.php`, mettre toutes les routes dans un groupe. Dans la fonction qui contient les routes de ce groupe, ajouter en première instruction un `session_start()`.
+1. Dans `routes/web.php`, mettre toutes les routes dans un groupe.
 
 1. Dans `routes/web.php`, remplacer l'appel à la vue `signout` par le code du fichier `signout.php` et remplacer l'appel à `header()` par un appel à la méthode `redirect()` de Laravel. Supprimer `signout.php`.
 
