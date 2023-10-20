@@ -1,8 +1,8 @@
 TP5 - Prise en main de Laravel
 ==============================
 
-Objectif
---------
+Objectifs
+---------
 
 Intégrer l'application d'authentification au framework Laravel.
 Vous pouvez vous baser au choix :
@@ -89,8 +89,9 @@ Exercice 5 : Un contrôleur pour s'authentifier
 Exercice 6 : Un contrôleur complet
 ----------------------------------
 
-Répétez les mêmes opérations que l'exercice précédent pour :
-	- `adduser.php` dans une méthode `create`
-	- `changepassword.php` dans une méthode `updatePassword`
-	- `deleteuser.php` dans une méthode `delete`
-	- `signout` dans une méthode `disconnect`
+Répétez les questions 1 à 4 de l'exercice précédent pour :
+
+- `adduser.php` dans une méthode `create`
+- `changepassword.php` dans une méthode `updatePassword`
+- `deleteuser.php` dans une méthode `delete`
+- `signout.php` dans une méthode `disconnect`
