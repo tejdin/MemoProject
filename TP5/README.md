@@ -52,13 +52,13 @@ Exercice 3 : Préparation de la BDD
 Exercice 4 : Préparation du modèle
 ----------------------------------
 
-À l'aide d'`artisan`, créez un modèle `MyUser`.
-
-**Attention, n'écrasez pas le fichier `User.php` existant déjà dans ce répertoire.**
-
-1. Compléter la classe `app/Models/MyUser`, avec le contenu de la classe `User.php` du TP4.
+1. Copiez le fichier `User.php` du TP4 dans un nouveau fichier `app/Models/MyUser.php` **Attention ** :
+	- n'écrasez pas le fichier `User.php` existant déjà dans ce répertoire.**
+	- ce n'est pas un vrai modèle Laravel, n'utilisez pas `artisan` pour créer le fichier.
+	- Votre classe ne doit pas étendre la classe `Model` de Laravel
 
 1. Dans `MyUser.php` :
+	- ajouter le namespace `App\Models`
 	- ajouter en entête les deux `use` suivants :
 		```php
 		use Illuminate\Support\Facades\DB;
