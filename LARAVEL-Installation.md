@@ -1,8 +1,6 @@
 Laravel
 =======
 
-**Préférez une installation sur votre ordinateur... si vous disposez d'un OS digne de ce nom ;).**
-
 Installation de composer
 ------------------------
 
@@ -25,7 +23,7 @@ Installation de Laravel
 1. Initialisation d'un projet `[NOM_DU_PROJET]` :
 
 ```
-$ composer create-project --prefer-dist laravel/laravel [NOM_DU_PROJET]
+$ composer create-project laravel/laravel [NOM_DU_PROJET]
 ```
 
 ou commande `php composer ...` si vous avez téléchargé le script.
@@ -38,7 +36,7 @@ $ php artisan serve
 Starting Laravel development server: http://127.0.0.1:8000
 ```
 
-Si tout s'est bien passé, votre navigateur affiche une page blanche avec le contenu suivant avec l'URL `http://127.0.0.1:8000` :
+Si tout s'est bien passé, votre navigateur affiche une page avec le contenu suivant pour l'URL `http://127.0.0.1:8000` :
 
 ```
 Laravel
