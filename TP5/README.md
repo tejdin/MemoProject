@@ -77,7 +77,7 @@ Exercice 5 : Un contrôleur pour s'authentifier
 1. Remplacez l'utilisation de  `User` par `MyUser`.
 
 1. Dans la méthode `connect` :
-	- supprimez tout ce qui concerne la vérification des données et utilisez l'objet `$request` pour accéder aux données transmises en POST (voir [la documentation de Request](https://laravel.com/docs/10.x/requests)).
+	- utilisez l'objet `$request` pour accéder aux données transmises en POST (voir [la documentation de Request](https://laravel.com/docs/10.x/requests)) et remplacez la vérification des données par des méthodes de `$request`,
 	- remplacer les `header('Location: ...'); exit;` par la méthode globale `redirect(<route>)` (voir [la documentation des Reponses HTTP](https://laravel.com/docs/10.x/responses#redirects)).
 	- Remplacez toutes les `Exception` et `PDOException` par `\Exception` et `\PDOException`
 
