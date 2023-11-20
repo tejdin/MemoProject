@@ -12,7 +12,7 @@ La documentation officielle :
 
 - [pour les sessions](https://laravel.com/docs/10.x/session)
 - [pour les redirections avec des sessions "flash"](https://laravel.com/docs/10.x/responses#redirecting-with-flashed-session-data)
--
+
 
 Exercice 1 : Messages flash avec les session Laravel
 ----------------------------------------------------
@@ -38,7 +38,7 @@ Exercice 2 : Un utilisateur en session Laravel
 Exercice 3 : Middleware d'authentification
 ------------------------------------------
 
-1. Avec `artisan`, créer un middleware `VerifyMyUserIsAuthenticated`.
+1. Avec `artisan`, créer un middleware `AuthenticateMyUser`.
 
 1. Compléter sa méthode `handle` pour :
 	- rediriger vers la route `signin` s'il n'y a pas d'utilisateur en session
