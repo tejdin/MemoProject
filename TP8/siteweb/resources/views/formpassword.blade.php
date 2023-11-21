@@ -23,6 +23,8 @@
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <button type="submit" class="btn btn-primary btn-block">Update Password</button>
                     </form>
+                    <a href="{{route('account')}}" class="btn btn-primary mt-2">Back to Account</a>
+
                 </div>
             </div>
         </div>

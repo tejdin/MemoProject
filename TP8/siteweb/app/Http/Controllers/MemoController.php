@@ -29,7 +29,7 @@ class MemoController extends Controller
         try {
             $memo= new Memo();
             $memos = $memo->all();
-            return view('showmemos', ['memos' => $memos]);
+            return view('memolist', ['memos' => $memos]);
         }
         catch (\Exception $e) {
             return to_route('account')->with('error', $e->getMessage());

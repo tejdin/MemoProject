@@ -10,5 +10,6 @@
              @include('shared/memocard', ['memo' => $memo])
             @endforeach
         </div>
+        <a href="{{route('account')}}" class="btn btn-primary mt-2">Back to Account</a>
     </div>
 @endsection
