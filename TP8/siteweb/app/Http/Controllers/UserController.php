@@ -39,7 +39,6 @@ class UserController extends Controller
        $result = $user->login();
 
        if($result==false){
-
         return to_route('login')->with('error', 'Invalid username or password');
        }
 
@@ -62,6 +61,9 @@ class UserController extends Controller
         $username = Session::get('user')->getusername();
         $oldpassword = $request->input('oldpassword');
         $newpassword = $request->input('newpassword');
+        if ($oldpassword == NULL || $newpassword == NULL) {
+            return to_route('formpassword')->with('error', 'Invalid old password or new password');
+        }
         $user = new MyUser($username, " ");
         $result = $user->login();
         if (password_verify($oldpassword, $result['password'])) {
