@@ -32,9 +32,9 @@ Route::prefix('admin')->middleware('auth.myuser')->group(function () {
         return view('account');
     })->name('account');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::post('/changepassword', [UserController::class, 'changepassword'])->name('changepassword');
 
 
 });
 Route::post('/auth', [UserController::class, 'login'])->name('auth');
 Route::post('/Adduser', [UserController::class, 'register'])->name('Adduser');
-Route::post('/changepassword', [UserController::class, 'changepassword'])->name('changepassword');
