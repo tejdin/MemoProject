@@ -9,19 +9,32 @@ class MemoController extends Controller
 {
     public function createMemo(Request $request)
     {
+        try {
+
+
         $title = $request->input('title');
         $content = $request->input('content');
         $memo = new Memo();
         $memo->title = $title;
         $memo->content = $content;
         $memo->save();
-        return to_route('account');
+        return view('formmemo', ['message' => 'Memo added']);
+        }
+        catch (\Exception $e) {
+            return to_route('account')->with('error', $e->getMessage());
+        }
     }
     public function showMemos()
     {
-        $memo= new Memo();
-        $memos = $memo->all();
-        return view('memolist', ['memos' => $memos]);
+        try {
+            $memo= new Memo();
+            $memos = $memo->all();
+            return view('showmemos', ['memos' => $memos]);
+        }
+        catch (\Exception $e) {
+            return to_route('account')->with('error', $e->getMessage());
+        }
+
     }
 
 }
