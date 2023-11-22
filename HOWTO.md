@@ -23,13 +23,13 @@ ATTENTION : Seuls les fichiers préalablement ajoutés seront sauvegardés.
 #### *... je pousse mes commits sur Gitlab (sauvegarde distante) ?"*
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 #### *... je récupère localement les fichiers que vous avez ajouté ?"*
 
 ```sh
-git pull prof master
+git pull prof main
 ```
 
 #### *... je récupère sur ordinateur2 ce que j'ai fait sur ordinateur1 ?"*
@@ -37,5 +37,5 @@ git pull prof master
 1. Je **commite** sur ordinateur1 et **pousse** vers Gitlab (voir ci-dessus)
 2. Je **rapatrie** sur ordinateur2 ce qui est maintenant sur Gitlab
 	```sh
-	git pull origin master
+	git pull origin main
 	```
