@@ -8,11 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Memo extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'title',
-        'content',
-    ];
+    protected $table = 'memo';
     // disable timestamps
     public $timestamps = false;
 

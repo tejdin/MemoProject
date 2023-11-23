@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('memos', function (Blueprint $table) {
-            $table->id()->autoIncrement();
+            $table->id();
             $table->string('title');
             $table->string('content');
             $table->timestamps();

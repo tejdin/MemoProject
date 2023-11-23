@@ -11,11 +11,12 @@ class UserController extends Controller
 {
    public function register(Request $request)
    {
+         if(!$request->has(['username', 'password'])){
+              return to_route('register')->with('error', 'Invalid username or password');
+         }
        $username = $request->input('username');
        $password = $request->input('password');
-       if ( $username == NULL || $password == NULL) {
-            return to_route('register')->with('error', 'Invalid username or password');
-         }
+
 
        $user = new MyUser($username, password_hash($password, PASSWORD_DEFAULT));
        $result=$user->login();
@@ -28,13 +29,13 @@ class UserController extends Controller
 
    public function login(Request $request)
    {
-
+       if(!$request->has(['username', 'password'])){
+           return to_route('login')->with('error', 'Invalid username or password');
+       }
        $username = $request->input('username');
        $password = $request->input('password');
        $user = new MyUser($username, " ");
-       if($username == NULL || $password == NULL){
-            return to_route('login')->with('error', 'Invalid username or password');
-       }
+
 
        $result = $user->login();
 
@@ -58,12 +59,13 @@ class UserController extends Controller
     }
     public function changepassword(Request $request)
     {
+        if(!$request->has(['oldpassword', 'newpassword'])){
+            return to_route('formpassword')->with('error', 'Invalid password');
+        }
         $username = Session::get('user')->getusername();
         $oldpassword = $request->input('oldpassword');
         $newpassword = $request->input('newpassword');
-        if ($oldpassword == NULL || $newpassword == NULL) {
-            return to_route('formpassword')->with('error', 'Invalid old password or new password');
-        }
+
         $user = new MyUser($username, " ");
         $result = $user->login();
         if (password_verify($oldpassword, $result['password'])) {

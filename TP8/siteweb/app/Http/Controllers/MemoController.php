@@ -9,9 +9,11 @@ class MemoController extends Controller
 {
     public function createMemo(Request $request)
     {
+        if (!$request->has(['title', 'content'])) {
+            return to_route('formmemo')->with('error', 'Invalid memo');
+        }
+
         try {
-
-
         $title = $request->input('title');
         $content = $request->input('content');
         $memo = new Memo();
