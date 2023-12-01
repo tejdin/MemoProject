@@ -17,8 +17,6 @@ Un **mémo** est constitué de ces éléments :
 - la date de la dernière publication,
 - la date de la dernière modification.
 
-Un **résumé d'un mémo** sera constitué de son titre et de sa date de publication.
-
 
 Partie publique
 ---------------
@@ -31,7 +29,7 @@ La partie publique doit proposer les 3 vues principales :
 
 Sur chaque vue, un menu doit permettre de naviguer vers les autres vues.
 
-Sur la page principale, un clic sur le titre d'un mémo doit mener à une page permettant de visualiser le contenu du mémo et toutes ses informations.
+Sur la page principale ne doivent apparaître ques les titres, date de création et propriétaire du mémo. Un clic sur le titre ou un bouton spécifique doit mener à une page permettant de visualiser le contenu de ce mémo et toutes ses informations.
 
 
 Compte utilisateur
@@ -46,7 +44,7 @@ Un utilisateur authentifié doit pouvoir :
 mais aussi :
 
 - créer un nouveau mémo
-- voir la liste de ses mémos, publiés et non publiés
+- voir la liste de ses mémos, publiques et privés
 - modifier un mémo qu'il a lui-même créé
 - rendre publique/privé un mémo
 
