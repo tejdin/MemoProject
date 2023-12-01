@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Memo extends Model
 {
     use HasFactory;
-    protected $table = 'memo';
+
+    protected $table = 'memos';
     // disable timestamps
-    public $timestamps = false;
+
+    // belongsToUser
+    public function user()
+    {
+        return $this->belongsTo(MyUser::class, 'username', 'username');
+    }
 
 }

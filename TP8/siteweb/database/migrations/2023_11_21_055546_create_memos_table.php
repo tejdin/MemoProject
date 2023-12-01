@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
+            $table->string('username');
+            $table->string('is_public')->default("private");
+            $table->foreign('username')->references('username')->on('myusers');
             $table->timestamps();
         });
     }

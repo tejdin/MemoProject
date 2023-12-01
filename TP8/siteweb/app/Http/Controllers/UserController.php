@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Models\MyUser;
 use Illuminate\Support\Facades\Session;
 
@@ -11,45 +12,45 @@ class UserController extends Controller
 {
    public function register(Request $request)
    {
-         if(!$request->has(['username', 'password'])){
-              return to_route('register')->with('error', 'Invalid username or password');
-         }
+       if(!$request->has(['username', 'password'])){
+           return to_route('formregister')->with('error', 'Invalid user');
+       }
        $username = $request->input('username');
        $password = $request->input('password');
+       $user = new MyUser();
+       if($user->where('username', $username)->exists()){
+           return to_route('formregister')->with('error', 'User already exists');
+       }
 
 
-       $user = new MyUser($username, password_hash($password, PASSWORD_DEFAULT));
-       $result=$user->login();
-         if($result != false){
-              return to_route('register')->with('error', 'User already exists');
-         }
-         $user->AddUser();
-            return to_route('login')->with('success', 'User added successfully');
+       $user->username = $username;
+       $user->password = password_hash($password, PASSWORD_DEFAULT);
+       $user->save();
+       return to_route('login')->with('success', 'User created successfully');
    }
+
 
    public function login(Request $request)
    {
-       if(!$request->has(['username', 'password'])){
-           return to_route('login')->with('error', 'Invalid username or password');
-       }
-       $username = $request->input('username');
-       $password = $request->input('password');
-       $user = new MyUser($username, " ");
+         if(!$request->has(['username', 'password'])){
+              return to_route('login')->with('error', 'Invalid user');
+         }
+         $username = $request->input('username');
+         $password = $request->input('password');
 
+         $user = MyUser::where('username', $username)->first();
+         if(!$user){
+              return to_route('login')->with('error', 'Invalid user');
+         }
 
-       $result = $user->login();
+         if(password_verify($password, $user->password)){
 
-       if($result==false){
-        return to_route('login')->with('error', 'Invalid username or password');
-       }
-
-       if (password_verify($password, $result['password'])) {
-                serialize($user);
-                Session::put('user', $user);
-                return to_route('account')->with('success', 'Login successfully');
-         } else {
-           return to_route('login')->with('error', 'Invalid username or password');
-       }
+              Session::put('user', $user);
+              return to_route('account');
+         }
+         else{
+              return to_route('login')->with('error', 'Invalid user');
+         }
    }
 
     public function logout()
@@ -59,22 +60,19 @@ class UserController extends Controller
     }
     public function changepassword(Request $request)
     {
-        if(!$request->has(['oldpassword', 'newpassword'])){
+        if (!$request->has(['oldpassword', 'newpassword'])) {
             return to_route('formpassword')->with('error', 'Invalid password');
         }
-        $username = Session::get('user')->getusername();
         $oldpassword = $request->input('oldpassword');
         $newpassword = $request->input('newpassword');
+        $user = Session::get('user');
 
-        $user = new MyUser($username, " ");
-        $result = $user->login();
-        if (password_verify($oldpassword, $result['password'])) {
-            $user = new MyUser($username, password_hash($newpassword, PASSWORD_DEFAULT));
-            $user->changepassword();
+        if (password_verify($oldpassword, $user->password)) {
+            $user->where('username', $user->username)->update(['password' => password_hash($newpassword, PASSWORD_DEFAULT)]);
             return to_route('account')->with('success', 'Password changed successfully');
-
         } else {
-            return to_route('formpassword')->with('error', 'Invalid old password');
+            return to_route('formpassword')->with('error', 'Invalid password');
         }
+
     }
 }
