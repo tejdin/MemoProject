@@ -17,7 +17,7 @@
                             <i class="fas fa-calendar-plus"></i> <strong>Créé le :</strong> {{$memo->created_at->format('d M Y')}} <br>
                             <i class="fas fa-edit"></i> <strong>Modifié le :</strong> {{$memo->updated_at->format('d M Y')}}
                         </p>
-                        @if( session()->has('user') && session()->get('user')->id == $memo->user_id)
+                        @if( session()->has('user') && session()->get('user')->username == $memo->user_id)
                             <div class="btn-group">
                                 <a href="{{route('updateMemo', ['id' => $memo->id])}}" class="btn btn-warning">Modifier</a>
                                 <form action="{{route('deletememo')}}" method="post">

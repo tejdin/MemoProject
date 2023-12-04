@@ -22,7 +22,7 @@
         </a>
 
         <!-- Boutons d'action à l'extérieur du lien principal -->
-        @if( session()->has('user') && session()->get('user')->id == $memo->user_id)
+        @if( session()->has('user') && session()->get('user')->username == $memo->user_id)
             <div class="card-footer d-flex justify-content-between">
                 <a href="{{route('updateMemo', ['id' => $memo->id])}}" class="btn btn-warning btn-sm">Modifier</a>
                 <form action="{{route('deletememo')}}" method="post" class="d-inline">
