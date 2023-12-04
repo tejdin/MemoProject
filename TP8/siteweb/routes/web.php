@@ -27,12 +27,13 @@ Route::get('/register', function () {
 
 Route::get('home', [MemoController::class, 'showPublicMemos'])->name('home');
 Route::post('deletememo', [MemoController::class, 'deleteMemo'])->name('deletememo');
-
+//showonememo
+Route::get('showonememo', [MemoController::class, 'showOneMemo'])->name('showonememo');
 
 Route::prefix('admin')->middleware('auth.myuser')->group(function () {
     Route::get('updateMemo', [MemoController::class, 'updateShowView'])->name('updateMemo');
     Route::put('updateMemo', [MemoController::class, 'UpdateMemo'])->name('updateMemo');
-    Route::put('/updateMemoStatus',[MemoController::class, 'UpdateMemo'])->name('updateMemoStatus');
+    Route::get('/updateMemoStatus',[MemoController::class, 'updateStatus'])->name('updateMemoStatus');
     Route::get('/formpassword', function () {
         return view('formpassword');
     })->name('formpassword');

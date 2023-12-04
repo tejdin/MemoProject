@@ -56,7 +56,7 @@ class MemoController extends Controller
     {
         try {
 
-            $memos = Memo::where('is_public', 'public')->orderBy('created_at', 'desc')->take(3)->get();
+            $memos = Memo::where('is_public', 'public')->orderBy('created_at', 'desc')->get();
             return view('home', ['memos' => $memos]);
 
         }
@@ -119,6 +119,18 @@ class MemoController extends Controller
                 }
                 $memo->save();
                 return to_route('home')->with('message', 'Memo updated');
+            }
+            catch (\Exception $e) {
+                return to_route('account')->with('error', $e->getMessage());
+            }
+        }
+
+        public function showOneMemo(Request $request)
+        {
+            try {
+                $id = $request->input('id');
+                $memo = Memo::find($id);
+                return view('memoView', ['memo' => $memo]);
             }
             catch (\Exception $e) {
                 return to_route('account')->with('error', $e->getMessage());

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('content');
             $table->string('username');
             $table->string('is_public')->default("private");
-            $table->foreign('username')->references('username')->on('myusers');
+            $table->foreign('username')->references('username')->on('myusers')->onDelete('cascade');
             $table->timestamps();
         });
     }
