@@ -11,8 +11,7 @@ class MyUser extends Model {
 	protected $primaryKey = 'login';
 	protected $keyType = 'string';
 
-	public function memos(): HasMany
-	{
-		return $this->hasMany(Memo::class,'owner');
+	public function movies(): HasMany {
+		return $this->hasMany(Movie::class,'login');
 	}
 }

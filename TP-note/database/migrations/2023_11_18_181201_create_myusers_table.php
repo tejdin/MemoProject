@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('myusers', function (Blueprint $table) {
             $table->text('login')->unique();
 			$table->text('password');
+			$table->text('genre');
 			$table->primary('login');
         });
     }

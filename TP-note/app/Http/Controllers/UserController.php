@@ -28,7 +28,7 @@ class UserController extends Controller
 	 * Create a new user.
 	 */
 	public function create(Request $request) {
-		if ( !$request->filled(['login','password','confirm']) )
+		if ( !$request->filled(['login','password','confirm','genre']) )
 			return to_route('view_signup')->with('message',"Some POST data are missing.");
 
 		if ( $request->password !== $request->confirm )
@@ -37,6 +37,7 @@ class UserController extends Controller
 		$user = new MyUser;
 		$user->login = $request->login;
 		$user->password = password_hash($request->password,PASSWORD_DEFAULT);
+		$user->genre = $request->genre;
 
 		try {
 			$user->save();
@@ -55,13 +56,14 @@ class UserController extends Controller
 		if ( !$request->user )
 			return to_route('view_signin');
 
-		if ( !$request->filled(['newpassword','confirmpassword']) )
+		if ( !$request->filled(['newpassword','confirmpassword','genre']) )
 			return to_route('view_formpassword')->with('message',"Some POST data are missing.");
 
 		if ( $request->newpassword != $request->confirmpassword )
 			return to_route('view_formpassword')->with('message',"Error: passwords are different.");
 
 		$request->user->password = password_hash($request->newpassword,PASSWORD_DEFAULT);;
+		$request->user->genre = $request->genre;
 		try {
 			$request->user->save();
 		}

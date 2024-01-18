@@ -8,6 +8,7 @@
 		@csrf
 		<label for="newpassword">New password</label>        <input type="password" id="newpassword"	 name="newpassword"	 required>
 		<label for="confirmpassword">Confirm password</label><input type="password" id="confirmpassword" name="confirmpassword" required>
+		@include('shared.selectpreferredtype')
 		<input type="submit" value="Change my password">
 	</form>
 	<p>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\MovieController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +31,15 @@ Route::prefix('admin')->middleware('auth.myuser')->group(function () {
 	Route::post('/changepassword', [UserController::class, 'updatePassword'])->name('user_changepassword');
 	Route::get('/deleteuser', [UserController::class, 'delete'])->name('user_deleteuser');
 	Route::get('/signout', [UserController::class, 'disconnect'])->name('user_signout');
+	Route::prefix('movie')->group(function () {
+		Route::view('/formmovie','formmovie')->name('view_formmovie');
+		Route::post('/addmovie', [MovieController::class, 'create'])->name('movie_addmovie');
+		Route::get('/list', [MovieController::class, 'showMovies'])->name('movie_list');
+		Route::get('/one/{id}', [MovieController::class, 'showOneMovie'])->name('movie_one');
+		Route::get('/userlist', [MovieController::class, 'showUserMovies'])->name('movie_userlist');
+		Route::get('/delete/{id}', [MovieController::class, 'delete'])->name('movie_delete');
+
+
+
+	});
 });
